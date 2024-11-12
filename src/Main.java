@@ -7,8 +7,14 @@ public class Main {
         System.out.println(("please enter a random number"));
         int a = 2;
         int b = 3;
-        if (a + b == number){
-           System.out.println(a + b  +"="  +number);
+        if (a + b == number) {
+            System.out.println(a + b + "=" + number);
+        }
+        else {
+            while(a += b != number){
+
+            }
+
        }
     }
 }
