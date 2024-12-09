@@ -20,6 +20,10 @@ public class Ex1Main {
                 input1 =Ex1.number2Int(num1);
                 System.out.println("num1=" + num1 + "is number: true , value    :" + input1);
             }
+            if (num1.equals("quit")) {
+                System.out.println("quiting now...");
+                System.exit(0);
+                }
             Scanner sc1 = new Scanner(System.in);
             System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
             num2 = sc1.next();
@@ -28,7 +32,8 @@ public class Ex1Main {
                 System.out.println("num2=" + num2 + "is number: true , value    :" + input2);
             }
             if (num2.equals("quit")) {
-
+                System.out.println("quiting now...");
+                System.exit(0);
             }
             Scanner sc2 = new Scanner(System.in);
             System.out.println("Enter a base for output: (a number [2,16]");
@@ -41,6 +46,7 @@ public class Ex1Main {
             multiply1=Ex1.int2Number(multiply, base);
             System.out.println(num1 + "+" + num2 + "=" + add1);
             System.out.println(num1 + "*" + num2 + "=" + multiply1);
+            Ex1.maxIndex(input1, input2,add,multiply,add1,multiply1);
         }
         System.out.println("quiting now...");
     }

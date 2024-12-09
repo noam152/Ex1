@@ -156,15 +156,15 @@ public class Ex1 {
          * This static function search for the array index with the largest number (in value).
          * In case there are more than one maximum - returns the first index.
          * Note: you can assume that the array is not null and is not empty, yet it may contain null or none-valid numbers (with value -1).
-         * @param arr an array of numbers
+         * @param add,multiply numbers
          * @return the index in the array in with the largest number (in value).
          *
          */
-        public static int maxIndex(String[] arr) {
+        public static void maxIndex(int a, int b,int add, int multiply,String add1,String multiply1) {
             int ans = 0;
-            // add your code here
-
-            ////////////////////
-            return ans;
+                if(add >= multiply)
+                    System.out.println("max number over ["+a + "," + b+"," + add1+"," + multiply1 +  "] is: " + add );
+                else
+                    System.out.println("max number over ["+a + "," + b+"," + add1+"," + multiply1 +  "] is: " + multiply1 );
         }
 }
