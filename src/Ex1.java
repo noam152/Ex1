@@ -14,7 +14,6 @@ public class Ex1 {
     /**
      * Convert the given number (num) to a decimal representation (as int).
      * It the given number is not in a valid format returns -1.
-     *
      * @param num a String representing a number in basis [2,16]
      * @return
      */
@@ -48,7 +47,7 @@ public class Ex1 {
     /**
      * This static function checks the numerical representation of the number.
      * @param base check the value of the char
-     * @return true iff the given String is in a number format
+     * @return the base of the numbers (this helps us to convert A,B,C,D,E,F,G to numbers).
      */
     public static int whichNumber(char base) {
         char[] baseChar = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G'};
@@ -63,7 +62,7 @@ public class Ex1 {
     }
 
     /**
-     * This static function checks if the given String (g) is in a valid "number" format.
+     * This static function is part (1) of 3 functions that checks if the given String (g) is in a valid "number" format.
      * @param a a String representing a number
      * @return true iff the given String is in a number format
      */
@@ -71,15 +70,12 @@ public class Ex1 {
         boolean ans = true;
         if (a == null || a.isEmpty())
             return false;
-        char[] charArray = a.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-            if(charArray[i] == ' ')
+        if(a.contains(" "))
                 return false;
-        }
         return ans;
     }
     /**
-     * This static function checks if the given String (g) is in a valid "number" format.
+     * This static function is part (2) of 3 functions that checks if the given String (g) is in a valid "number" format.
      * @param array an array representing a number and a base
      * @return true iff the given String is in a number format
      */
@@ -101,8 +97,7 @@ public class Ex1 {
     }
 
     /**
-     * This static function checks if the given String (g) is in a valid "number" format.
-     *
+     * This static function is part (3) of 3 functions that checks if the given String (g) is in a valid "number" format.
      * @param base,num an int representing a number and a base
      * @return true iff the given String is in a number format
      */
@@ -146,9 +141,6 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-            // add your code here
-
-            ////////////////////
             return ans;
         }
 

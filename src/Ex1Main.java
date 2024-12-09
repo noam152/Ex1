@@ -18,7 +18,12 @@ public class Ex1Main {
             int input2 = 0;
             if (!num1.equals("quit")) {
                 input1 =Ex1.number2Int(num1);
+                if(input1!=-1)
                 System.out.println("num1=" + num1 + "is number: true , value    :" + input1);
+                else {
+                    System.out.println("ERR: num1 is in the wrong format! (" + num1 + ")");
+                    continue;
+                }
             }
             if (num1.equals("quit")) {
                 System.out.println("quiting now...");
@@ -29,7 +34,12 @@ public class Ex1Main {
             num2 = sc1.next();
             if (!num2.equals("quit")) {
                 input2 =Ex1.number2Int(num2);
-                System.out.println("num2=" + num2 + "is number: true , value    :" + input2);
+                if(input2!=-1)
+                    System.out.println("num2=" + num1 + "is number: true , value    :" + input2);
+                else {
+                    System.out.println("ERR: num2 is in the wrong format! (" + num2 + ")");
+                    continue;
+                }
             }
             if (num2.equals("quit")) {
                 System.out.println("quiting now...");
@@ -48,6 +58,5 @@ public class Ex1Main {
             System.out.println(num1 + "*" + num2 + "=" + multiply1);
             Ex1.maxIndex(input1, input2,add,multiply,add1,multiply1);
         }
-        System.out.println("quiting now...");
     }
 }
