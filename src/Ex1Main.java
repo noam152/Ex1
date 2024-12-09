@@ -27,6 +27,9 @@ public class Ex1Main {
                 input2 =Ex1.number2Int(num2);
                 System.out.println("num2=" + num2 + "is number: true , value    :" + input2);
             }
+            if (num2.equals("quit")) {
+
+            }
             Scanner sc2 = new Scanner(System.in);
             System.out.println("Enter a base for output: (a number [2,16]");
             int base = sc2.nextInt();

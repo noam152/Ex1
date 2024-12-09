@@ -20,6 +20,10 @@ public class Ex1 {
      */
     public static int number2Int(String num) {
         int ans = -1;
+        if(num.matches(".*[0-9].*") && !num.matches(".*[a-zA-Z].*")) {
+            int decimal = Integer.parseInt(num);
+            return decimal;
+        }
         if (num.charAt(num.length() - 2) != 'b' && (isNumber1(num)))
             return ans;
             String[] arr = num.split("b");// add your code here
@@ -88,9 +92,11 @@ public class Ex1 {
         if (numPart.isEmpty() || basePart.isEmpty()) {
             return false;
         }
-        int base = Integer.parseInt(basePart);
-        if(base > 9)
-            return false;
+        if(!basePart.matches(".*[a-zA-Z].*")) {
+            int base = Integer.parseInt(basePart);
+            if (base > 9)
+                return false;
+        }
         return ans;
     }
 
