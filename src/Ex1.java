@@ -19,29 +19,27 @@ public class Ex1 {
      */
     public static int number2Int(String num) {
         int ans = -1;
-        if(num.matches(".*[0-9].*") && !num.matches(".*[a-zA-Z].*")) {
-            int decimal = Integer.parseInt(num);
-            return decimal;
-        }
-        if (num.charAt(num.length() - 2) != 'b' && (isNumber1(num)))
-            return ans;
+        if(isNumber1(num)) {
+            if (num.matches(".*[0-9].*") && !num.matches(".*[A-Zb].*")) {
+                int decimal = Integer.parseInt(num);
+                return decimal;
+            }
             String[] arr = num.split("b");// add your code here
             String numPart = arr[0];
             String basePart = arr[1];
-            if(!isNumber2(arr))
-                return ans;
             char baseChar = basePart.charAt(0);
             int base = whichNumber(baseChar);
             char[] charArray = numPart.toCharArray();
-            int sum= 0;
+            int sum = 0;
             for (int i = 0; i < charArray.length; i++) {
                 int numBase = whichNumber(charArray[charArray.length - 1 - i]);
-                if(!isNumber3(base,numBase))
-                    return ans;
                 sum += (int) (numBase * (Math.pow(base, i)));
             }
             return sum;
             ////////////////////
+        }
+        else
+            return ans;
     }
 
     /**
@@ -70,45 +68,38 @@ public class Ex1 {
         boolean ans = true;
         if (a == null || a.isEmpty())
             return false;
-        if(a.contains(" "))
-                return false;
-        return ans;
-    }
-    /**
-     * This static function is part (2) of 3 functions that checks if the given String (g) is in a valid "number" format.
-     * @param array an array representing a number and a base
-     * @return true iff the given String is in a number format
-     */
-    public static boolean isNumber2( String[] array) {
-        boolean ans = true;
-        if (array.length != 2)
+        if (!a.matches("^[A-Gb0-9]+$"))
             return false;
-        String numPart = array[0];
-        String basePart = array[1];
-        if (numPart.isEmpty() || basePart.isEmpty()) {
+        if (a.matches(".*[0-9].*") && !a.matches(".*[A-Zb].*"))
+            return true;
+        if (a.matches(".*[A-Z].*") && !a.matches(".*[0-9b].*"))
             return false;
-        }
-        if(!basePart.matches(".*[a-zA-Z].*")) {
+        if (a.charAt(a.length() - 2) != 'b')
+            return false;
+        String[] arr = a.split("b");// add your code here
+        String numPart = arr[0];
+        String basePart = arr[1];
+        if (arr.length != 2)
+            return false;
+        if (numPart.isEmpty() || basePart.isEmpty())
+            return false;
+        if (!basePart.matches(".*[A-G].*")) {
             int base = Integer.parseInt(basePart);
             if (base > 9)
                 return false;
         }
-        return ans;
+        char baseChar = basePart.charAt(0);
+        int base = whichNumber(baseChar);
+        char[] charArray = numPart.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            int numBase = whichNumber(charArray[charArray.length - 1 - i]);
+            if (base > 16 || base < 2 || numBase < 0)
+                return false;
+            if (numBase >= base)
+                return false;
+        }
+        return true;
     }
-
-    /**
-     * This static function is part (3) of 3 functions that checks if the given String (g) is in a valid "number" format.
-     * @param base,num an int representing a number and a base
-     * @return true iff the given String is in a number format
-     */
-    public static boolean isNumber3( int base, int num) {
-        boolean ans = true;
-        if (base > 16 || base < 2|| num<0)
-            return false;
-        if (num >= base)
-            return false;
-    return ans;
-}
 
         /**
          * Calculate the number representation (in basis base)
