@@ -54,6 +54,10 @@ public class Ex1Main {
             String multiply1;
             add1=Ex1.int2Number(add, base);
             multiply1=Ex1.int2Number(multiply, base);
+            if(add1.equals("") || multiply1.equals("")) {
+                System.out.println("ERR: wrong base, should be [2,16], got " + base);
+                continue;
+            }
             System.out.println(num1 + "+" + num2 + "=" + add1);
             System.out.println(num1 + "*" + num2 + "=" + multiply1);
             Ex1.maxIndex(input1, input2,add,multiply,add1,multiply1);

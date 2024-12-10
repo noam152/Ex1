@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * This class represents a simple solution for Ex1.
  * As defined here: https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit
@@ -19,12 +21,12 @@ public class Ex1 {
      */
     public static int number2Int(String num) {
         int ans = -1;
-        if(isNumber1(num)) {
-            if (num.matches(".*[0-9].*") && !num.matches(".*[A-Zb].*")) {
+        if(isNumber(num)) {
+            if (num.matches(".*[0-9].*") && !num.matches(".*[A-Zb].*")) { // return the number in case of decimal
                 int decimal = Integer.parseInt(num);
                 return decimal;
             }
-            String[] arr = num.split("b");// add your code here
+            String[] arr = num.split("b");
             String numPart = arr[0];
             String basePart = arr[1];
             char baseChar = basePart.charAt(0);
@@ -60,31 +62,31 @@ public class Ex1 {
     }
 
     /**
-     * This static function is part (1) of 3 functions that checks if the given String (g) is in a valid "number" format.
+     * This static function is a functions that checks if the given String (g) is in a valid "number" format.
      * @param a a String representing a number
      * @return true iff the given String is in a number format
      */
-    public static boolean isNumber1(String a) {
+    public static boolean isNumber(String a) {
         boolean ans = true;
-        if (a == null || a.isEmpty())
+        if (a == null || a.isEmpty()) // check if the number contain something
             return false;
-        if (!a.matches("^[A-Gb0-9]+$"))
+        if (!a.matches("^[A-Gb0-9]+$"))// check that the number contain only valid chars.
             return false;
-        if (a.matches(".*[0-9].*") && !a.matches(".*[A-Zb].*"))
+        if (a.matches(".*[0-9].*") && !a.matches(".*[A-Zb].*"))// check if the number is decimal.
             return true;
-        if (a.matches(".*[A-Z].*") && !a.matches(".*[0-9b].*"))
+        if (a.matches(".*[A-Z].*") && !a.matches(".*[0-9b].*"))// if the number isn't contain numbers, he isn't valid.
             return false;
-        if (a.charAt(a.length() - 2) != 'b')
+        if (a.charAt(a.length() - 2) != 'b')// the char in the place -1 before the end have to be "b"
             return false;
-        String[] arr = a.split("b");// add your code here
+        String[] arr = a.split("b");
         String numPart = arr[0];
         String basePart = arr[1];
         if (arr.length != 2)
             return false;
-        if (numPart.isEmpty() || basePart.isEmpty())
+        if (numPart.isEmpty() || basePart.isEmpty()) // check if one of the parts is empty
             return false;
-        if (!basePart.matches(".*[A-G].*")) {
-            int base = Integer.parseInt(basePart);
+        if (!basePart.matches(".*[A-G].*")) {// check that the representation of the base is in the valid format in case that the base represent in by number
+            int base = Integer.parseInt(basePart);//
             if (base > 9)
                 return false;
         }
@@ -111,6 +113,8 @@ public class Ex1 {
          */
         public static String int2Number(int num, int base) {
             String ans = "";
+            if(base > 16 || base < 2)
+                return ans;
             int temp1;
             StringBuilder finalNumber = new StringBuilder();
             while (num > 0) {
@@ -131,8 +135,13 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
+            int a = number2Int(n1);
+            int b = number2Int(n2);
             boolean ans = true;
-            return ans;
+            if(a==b) {
+                return true;
+            }
+            return false;
         }
 
         /**
@@ -143,11 +152,12 @@ public class Ex1 {
          * @return the index in the array in with the largest number (in value).
          *
          */
+
         public static void maxIndex(int a, int b,int add, int multiply,String add1,String multiply1) {
             int ans = 0;
                 if(add >= multiply)
-                    System.out.println("max number over ["+a + "," + b+"," + add1+"," + multiply1 +  "] is: " + add );
+                    System.out.println("max number over [" +a + "," + b + "," + add1 + "," + multiply1 +  "] is: " + add1 );
                 else
-                    System.out.println("max number over ["+a + "," + b+"," + add1+"," + multiply1 +  "] is: " + multiply1 );
+                    System.out.println("max number over [" +a + "," + b + "," + add1 + "," + multiply1 +  "] is: " + multiply1 );
         }
 }
