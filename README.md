@@ -18,13 +18,12 @@ Converts a number from its string-based format to its decimal (base 10) represen
 Input: String in the format <number><b><base>.
 Output: Decimal representation as an integer, or -1 if the input format is invalid.
 
-2)whichNumber(char base)
+2.whichNumber(char base)
 Determines the numeric value of a given character.
 Input: A single character representing a digit or base (e.g., A for base 10).
 Output: Integer value corresponding to the character, or -1 for invalid input.
 
 3. isNumber(String a)
-
 Validates if a string is in a valid number format.
 Input: A string representing a number.
 Output: Boolean (true if valid, false otherwise).
